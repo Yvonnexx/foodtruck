@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Find nearby Foodtrucks</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/foodtruck.css')}}"/>
+    </head>
+
+    <body>
+
+        <div id="map-canvas"></div>
+        <div id="main-panel">
+
+            <header></header>
+
+            <section id="main">
+                <div id="info-panel"></div>
+            </section>
+
+            <footer></footer>
+
+        </div>
+
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXNzJ3b-Uly-LQUFGjP95lyIMi15ksVb4&sensor=true">
+        </script>
+        <script src="{{url_for('static', filename='js/google_maps.js')}}"></script>
+
+    </body>
+</html>

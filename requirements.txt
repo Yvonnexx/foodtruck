@@ -1,0 +1,5 @@
+requests==2.4.1
+scipy==0.14.0
+numpy==1.9.0
+Flask-Cache==0.13.1
+utm==0.3.1
