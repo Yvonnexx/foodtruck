@@ -9,7 +9,7 @@ Link to the hosted application
 ----------
 http://yvonnexiao.kd.io:5000/
 
-Have hosted the app on koding, but it will ask you click on the link again to redirect to the app url. It’s an default setting for kidding.
+Have hosted the app on koding, but it will ask you to click on the link showing on the webpage to redirect to the app. It’s an default setting for kidding.
 
 Link to the hosted repository
 ------------------
@@ -44,7 +44,7 @@ $ python run_test.py
 ```
 Then go to http://localhost:5000 in the browser.
 
-Once open the above url, you will see a marker on the google maps. You can drag the marker, once you done dragging, you will see nearby food trucks updated on the map.
+Once open the above url, you will see a marker on the google maps. You can drag the marker, once you done dragging, click on the truck icon image, you will see the information for this food truck.
 
 Design Decision
 ---------------
