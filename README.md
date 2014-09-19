@@ -4,13 +4,13 @@ foodtruck-app
 
  Food Trucks 
 
-*Live site:
+*Link to the hosted application:
 
 http://yvonnexiao.kd.io:5000/
 
 Have hosted the app on koding, but it will ask you click on the link again to redirect to the app url. It’s an default setting for kidding.
 
-*Hosted repository:
+*Link to the Hosted repository:
 https://github.com/Yvonnexx/uber-code-challenge
 
 *Technical Track:
@@ -19,7 +19,7 @@ https://github.com/Yvonnexx/uber-code-challenge
 
 *Reasoning behind my technical choices:
 
-Have some relevant experience building a back-end service for web-app.
+Have some relevant experience building a back-end service for the web application.
 
 *Level of experience with technical stack:
 
@@ -27,22 +27,24 @@ Have some relevant experience building a back-end service for web-app.
  Javascript  Beginner	
  Flask	Beginner
 
-This app is a full-stack application of food trucks that provides a service to tell the user what types of food trucks might be found near a specific location on a map
+This app is mainly focusing on the back-end service of food trucks. 
 
 *To Run:
 
 $python test.py
 Then type in the url http://localhost:5000
-Once open the above url, you will see a marker on the google maps. You can drag the marker to different addresses and it will show the images of the food-truck nearby.
+Once open the above url, you will see a marker on the google maps. You can drag the marker to different addresses and it will show the images of the food-truck nearby. You can click on the image and the information for this food truck will be shown on the web page.
 
 $python run_test.py
 This is to run the unit test modules written for this service.
 
 *Design Decison:
-It took me a while to make a decision where to store the data, whether in the cache or in a database. As for the database, I can use MongoDB to compute nearest food truck near a specific location but I decided to use cache instead for the following reasons.
+It took me a while to make the decision where to store the data, whether in the cache or in a database. As for the database, I initially thought about using MongoDB to compute nearest food truck near a specific location but I decided to use cache instead for the following reasons.
 First, the food-truck data is not very large, it's reasonable to save them in cache. Each time a user send a request to the server, the backend server will check if the eTag of the url data has been modified. If not, we can just compute the result using the KDTree in the cache which has been already built. Querying cache is faster than database query operations. 
 Secondly, food-truck information changes frequently. Updating the database each time to check consistency would be not very fast.
 Based on my understanding of the food-truck service, I think using cache is a better choice than using database.
+
+I have also given a lot thoughts about how to compute the nearest neighbors near a specific location. The reason why I use KDTree is finding 1 nearest neighbor in a balanced k-dtree with randomly distributed points take O(log n) time on average.
 
 *The Development
 
@@ -77,9 +79,7 @@ Spent a day learning how to find the nearest location near a specific location. 
 Spent like one day writing all the tests for each function since any untested code is broken code.
 
 *Shortcomings:
-Not an expert in the front end, still a beginner in HTML, CSS, Javascript, and Google Maps API. 
-
-Didn't have time to create a better look front end page.
+Not an expert in the front end, still a beginner in HTML, CSS, Javascript, and Google Maps API. Didn't have time to create a better look front end page.
 
 *Link to other code:
 
