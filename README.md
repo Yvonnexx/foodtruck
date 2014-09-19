@@ -5,13 +5,13 @@ Project
 --------
 Food Trucks 
 
-Live site
+Link to the hosted application
 ----------
 http://yvonnexiao.kd.io:5000/
 
 Have hosted the app on koding, but it will ask you click on the link again to redirect to the app url. It’s an default setting for kidding.
 
-Hosted repository
+Link to the hosted repository
 ------------------
 https://github.com/Yvonnexx/foodtruck
 
@@ -46,9 +46,9 @@ Then go to http://localhost:5000 in the browser.
 
 Once open the above url, you will see a marker on the google maps. You can drag the marker, once you done dragging, you will see nearby food trucks updated on the map.
 
-Design Decison
+Design Decision
 ---------------
-It took me a while to make the decision about how to store the data. My initial consideration was to persist all data in the database. I did some reasearch on different databases and narrowed down to MongoDB and PostgreSQL, because they both support geographical data query, which makes problems like k nearest neighbors trivial. However, considering that the data set is relatively small, it is reasonable to save them in cache, and only call the SODA api when needed(cache miss or etag mismatch).
+It took me a while to make the decision about how to store the data. My initial consideration was to persist all data in the database. I did some research on different databases and narrowed down to MongoDB and PostgreSQL, because they both support geographical data query, which makes problems like k nearest neighbors trivial. However, considering that the data set is relatively small, it is reasonable to save them in cache, and only call the SODA api when needed(cache miss or etag mismatch).
 
 Having the storage solution concluded, the next challenge would be to compute k nearest neighbors. A little Google search brought me to an awesome Python library, scipy. Scipy provides a data structure called KD-Tree, which computes k nearest neighbors in O(log N) time complexity. I decided to build the tree right after the SODA api call and store the pickled tree in cache, so I can always have the most up to date data, and have the ability to compute the results lightning fast.
 
@@ -71,7 +71,7 @@ The Development
 
 Where I spent my Time
 ---------------------
-Time is limited for the one week code challenge since I'm still doing an internship. I spent about two nights thinking about the architecture of the services. Spent two days learning all the tools needed like flask. Spent a day learning how to find the k nearest location. Then I chose KD-Tree since its query time complexity is only O(log N). Althougth the tree construction is a little complex, I can use cache and eTag to greatly improve the performance. Most of the other times are spent on coding and testing, I believe that any untested code is broken code.
+Time is limited for the one week code challenge since I'm still doing an internship. I spent about two nights thinking about the architecture of the services. Spent two days learning all the tools needed like flask. Spent a day learning how to find the k nearest location. Then I chose KD-Tree since its query time complexity is only O(log N). Although the tree construction is a little complex, I can use cache and eTag to greatly improve the performance. Most of the other times are spent on coding and testing, I believe that any untested code is broken code.
 
 Shortcomings
 -------------
