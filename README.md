@@ -9,7 +9,7 @@ Link to the hosted application
 ----------
 http://yvonnexiao.kd.io:5000/
 
-Have hosted the app on koding, but it will ask you to click on the link showing on the webpage to redirect to the app. It’s an default setting for kidding.
+Have hosted the app on koding, but it will ask you to click on the link showing on the webpage to redirect to the app . It’s a default setting for kidding.
 
 Link to the hosted repository
 ------------------
