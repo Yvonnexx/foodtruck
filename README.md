@@ -1,92 +1,89 @@
 foodtruck-app
-=============
-*Project:
+============
 
- Food Trucks 
+Project:
+--------
+Food Trucks 
 
-*Link to the hosted application: http://yvonnexiao.kd.io:5000/
+Live site:
+----------
+http://yvonnexiao.kd.io:5000/
 
-Have hosted the app on koding, but it will ask you to click on the link on the page to redirect to the app url. It’s an default setting for kidding and I cannot change that.
+Have hosted the app on koding, but it will ask you click on the link again to redirect to the app url. It’s an default setting for kidding.
 
-*Link to the Hosted repository:
+Hosted repository:
+------------------
 https://github.com/Yvonnexx/foodtruck
 
-*Technical Track:
+Technical Track:
+----------------
+Back-end
 
- Back-end
+Reasoning behind my technical choices:
+--------------------------------------
+Have some relevant experience building a back-end service for web-app.
 
-*Reasoning behind my technical choices:
+Level of experience with technical stack:
+-----------------------------------------
+Python Advanced 
+Javascript Beginner 
+Flask Beginner
 
-Have some relevant experience building a back-end service for the web application.
+This app is a full-stack application, it provides a service that enables the users see all the food trucks around them.
 
-*Level of experience with technical stack:
+To Run:
+-------
+To run the unit tests, do:
+```
+$ python test.py
+```
 
- Python  Advanced	
- Javascript  Beginner	
- Flask	Beginner
+To run the app, do:
+```
+$ python run_test.py
+```
+Then go to http://localhost:5000 in the browser.
 
-This app is mainly focusing on the back-end service of food trucks. 
+Once open the above url, you will see a marker on the google maps. You can drag the marker, once you done dragging, you will see nearby food trucks updated on the map.
 
-*To Run:
+Design Decison:
+---------------
+It took me a while to make the decision about how to store the data. My initial consideration was to persist all data in the database. I did some reasearch on different databases and narrowed down to MongoDB and PostgreSQL, because they both support geographical data query, which makes problems like k nearest neighbors trivial. However, considering that the data set is relatively small, it is reasonable to save them in cache, and only call the SODA api when needed(cache miss or etag mismatch).
 
-$python test.py
-Then type in the url http://localhost:5000
-Once open the above url, you will see a marker on the google maps. You can drag the marker to different addresses and it will show the images of the food-truck nearby. You can click on the image and the information for this food truck will be shown on the web page.
+Having the storage solution concluded, the next challenge would be to compute k nearest neighbors. A little Google search brought me to an awesome Python library, scipy. Scipy provides a data structure called KD-Tree, which computes k nearest neighbors in O(log N) time complexity. I decided to build the tree right after the SODA api call and store the pickled tree in cache, so I can always have the most up to date data, and have the ability to compute the results lightning fast.
 
-$python run_test.py
-This is to run the unit test modules written for this service.
+Even though I used cache at this time, that does not mean I will not use database in the future. In following development, I will setup a database and periodically persist data from cache.
 
-*Design Decison:
-It took me a while to make the decision where to store the data, whether in the cache or in a database. As for the database, I initially thought about using MongoDB to compute nearest food truck near a specific location but I decided to use cache instead for the following reasons.
-First, the food-truck data is not very large, it's reasonable to save them in cache. Each time a user send a request to the server, the backend server will check if the eTag of the url data has been modified. If not, we can just compute the result using the KDTree in the cache which has been already built. Querying cache is faster than database query operations. 
-Secondly, food-truck information changes frequently. Updating the database each time to check consistency would be not very fast.
-Based on my understanding of the food-truck service, I think using cache is a better choice than using database.
+The Development
+---------------
 
-I have also given a lot thoughts about how to compute the nearest neighbors near a specific location. The reason why I use KDTree is finding 1 nearest neighbor in a balanced k-dtree with randomly distributed points take O(log n) time on average.
+**Frontend**
+* HTML
+* CSS
+* Javascript
+* Google Maps API
 
-*The Development
+**Backend**
+* Python
+* Flask
+* Socrate Open Data API
+* scipy
 
-Frontend
+Where I spent my Time
+---------------------
+Time is limited for the one week code challenge since I'm still doing an internship. I spent about two nights thinking about the architecture of the services. Spent two days learning all the tools needed like flask. Spent a day learning how to find the k nearest location. Then I chose KD-Tree since its query time complexity is only O(log N). Althougth the tree construction is a little complex, I can use cache and eTag to greatly improve the performance. Most of the other times are spent on coding and testing, I believe that any untested code is broken code.
 
--HTML
+Shortcomings:
+-------------
+Not an expert in the front end, still a beginner in HTML, CSS, Javascript, and Google Maps API. 
 
--CSS
+Didn't have time to create a better look front end page.
 
--Javascript
-
--Google Maps API
-
-Backend
-
--Flask(Python)
-
--Socrate Open Data API 
-
--scipy.spatial.kdtree (Python)
-
--cPickle(Python)
-
--flask.ext.cache (Python)
-
-*Where I spent my Time
-Time is limited for the one week code challenge since I'm still doing an internship.
-I spent about two nights thinking about the structure of the back end services.
-Spent two days learning all the APIs needed like flask.ext.cache.
-Also spent one day learning how to add eTag using Flask cause we can check the status of the eTag, if it's 304 which means the json url Socrate Open Data API provided page has not been modified, we can just use the KDTree already cached.
-Spent a day learning how to find the nearest location near a specific location. Then I chose KDTree since the query time for KDTree is just O(log N) althougth the tree construction is a little complex, but we can use cache and eTag to improve the performance.
-Spent like one day writing all the tests for each function since any untested code is broken code.
-
-*Shortcomings:
-Not an expert in the front end, still a beginner in HTML, CSS, Javascript, and Google Maps API. Didn't have time to create a better look front end page.
-
-*Link to other code:
-
+**Link to other code:**
 https://github.com/Yvonnexx/whattoeat
 
-*Linkedln profile:
-
+**Linkedln profile:**
 https://www.linkedin.com/in/yvonnexiaoxiao
 
-*Link to the resume
-
+**Link to the resume**
 https://github.com/Yvonnexx/resume
