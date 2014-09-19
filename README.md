@@ -9,7 +9,7 @@ foodtruck-app
 Have hosted the app on koding, but it will ask you to click on the link on the page to redirect to the app url. It’s an default setting for kidding and I cannot change that.
 
 *Link to the Hosted repository:
-https://github.com/Yvonnexx/uber-code-challenge
+https://github.com/Yvonnexx/foodtruck
 
 *Technical Track:
 
