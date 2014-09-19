@@ -4,9 +4,7 @@ foodtruck-app
 
  Food Trucks 
 
-*Link to the hosted application:
-
-http://yvonnexiao.kd.io:5000/
+*Link to the hosted application: http://yvonnexiao.kd.io:5000/
 
 Have hosted the app on koding, but it will ask you to click on the link on the page to redirect to the app url. It’s an default setting for kidding and I cannot change that.
 
