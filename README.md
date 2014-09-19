@@ -1,29 +1,29 @@
 foodtruck-app
 ============
 
-Project:
+Project
 --------
 Food Trucks 
 
-Live site:
+Live site
 ----------
 http://yvonnexiao.kd.io:5000/
 
 Have hosted the app on koding, but it will ask you click on the link again to redirect to the app url. It’s an default setting for kidding.
 
-Hosted repository:
+Hosted repository
 ------------------
 https://github.com/Yvonnexx/foodtruck
 
-Technical Track:
+Technical Track
 ----------------
 Back-end
 
-Reasoning behind my technical choices:
+Reasoning behind my technical choices
 --------------------------------------
 Have some relevant experience building a back-end service for web-app.
 
-Level of experience with technical stack:
+Level of experience with technical stack
 -----------------------------------------
 Python Advanced 
 Javascript Beginner 
@@ -31,7 +31,7 @@ Flask Beginner
 
 This app is a full-stack application, it provides a service that enables the users see all the food trucks around them.
 
-To Run:
+To Run
 -------
 To run the unit tests, do:
 ```
@@ -46,7 +46,7 @@ Then go to http://localhost:5000 in the browser.
 
 Once open the above url, you will see a marker on the google maps. You can drag the marker, once you done dragging, you will see nearby food trucks updated on the map.
 
-Design Decison:
+Design Decison
 ---------------
 It took me a while to make the decision about how to store the data. My initial consideration was to persist all data in the database. I did some reasearch on different databases and narrowed down to MongoDB and PostgreSQL, because they both support geographical data query, which makes problems like k nearest neighbors trivial. However, considering that the data set is relatively small, it is reasonable to save them in cache, and only call the SODA api when needed(cache miss or etag mismatch).
 
@@ -73,16 +73,16 @@ Where I spent my Time
 ---------------------
 Time is limited for the one week code challenge since I'm still doing an internship. I spent about two nights thinking about the architecture of the services. Spent two days learning all the tools needed like flask. Spent a day learning how to find the k nearest location. Then I chose KD-Tree since its query time complexity is only O(log N). Althougth the tree construction is a little complex, I can use cache and eTag to greatly improve the performance. Most of the other times are spent on coding and testing, I believe that any untested code is broken code.
 
-Shortcomings:
+Shortcomings
 -------------
 Not an expert in the front end, still a beginner in HTML, CSS, Javascript, and Google Maps API. 
 
 Didn't have time to create a better look front end page.
 
-**Link to other code:**
+**Link to other code**
 https://github.com/Yvonnexx/whattoeat
 
-**Linkedln profile:**
+**Linkedln profile**
 https://www.linkedin.com/in/yvonnexiaoxiao
 
 **Link to the resume**
