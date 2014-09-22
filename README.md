@@ -7,7 +7,9 @@ Food Trucks
 
 Link to the hosted application
 ----------
+new link http://ec2-54-183-252-236.us-west-1.compute.amazonaws.com/ (in case one of them broken)
 http://yvonnexiao.kd.io:5000/
+
 
 Have hosted the app on koding, but it will ask you to click on the link showing on the webpage to redirect to the app . It’s a default setting for koding.
 
